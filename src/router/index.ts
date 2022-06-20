@@ -11,4 +11,9 @@ const router = createRouter({
   ],
 })
 
+router.beforeEach((to, from) => {
+  if (to.path === '/') {
+    router.push('/login')
+  }
+})
 export default router
