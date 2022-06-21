@@ -1,13 +1,16 @@
 <template>
   <div class="login-card">
     <div class="left">
-      <img
-        src="@/assets/undraw_review_re_kgg1.svg"
-        alt=""
-        srcset=""
-        draggable="false"
-        ondragstart="return false"
-      />
+      <figure>
+        <img
+          src="@/assets/undraw_review_re_kgg1.svg"
+          alt=""
+          srcset=""
+          draggable="false"
+          ondragstart="return false"
+        />
+        <figcaption :style="{ color: 'white' }">this is Description</figcaption>
+      </figure>
     </div>
 
     <div class="right">
@@ -43,6 +46,7 @@
             <n-checkbox v-model:checked="isRemember">下次自动登录</n-checkbox>
             <n-form-item>
               <n-button
+                @click="loginAction"
                 type="primary"
                 :style="{ width: 'calc(50% - 30px)', marginRight: '30px' }"
                 >登录</n-button
@@ -132,6 +136,7 @@ import {
   type FormRules,
 } from 'naive-ui'
 import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
+import router from '@/router'
 const timer = ref<number | null>(null)
 const loginForm = ref({
   user: {
@@ -212,6 +217,9 @@ const getCode = () => {
       }
     }, 1000)
   }
+}
+const loginAction = () => {
+  router.push('/dashboard')
 }
 </script>
 
