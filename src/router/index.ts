@@ -6,11 +6,17 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
+      meta: {
+        title: '登录页面',
+      },
       component: () => import('@/views/Login.vue'),
     },
     {
       path: '/dashboard',
       name: 'dashboard',
+      meta: {
+        title: '控制面板',
+      },
       component: () => import('@/views/Dashboard.vue'),
     },
   ],
@@ -20,5 +26,6 @@ router.beforeEach((to, from) => {
   if (to.path === '/') {
     router.push('/login')
   }
+  document.title = to.meta.title ?? import.meta.env.VITE_APP_TITLE
 })
 export default router

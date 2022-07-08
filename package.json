@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "test": "vitest",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "build-only": "vite build",
@@ -10,14 +11,15 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "echarts": "^5.3.3",
     "pinia": "^2.0.14",
     "vue": "^3.2.36",
     "vue-router": "^4.0.15"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.1.0",
     "@types/node": "^16.11.36",
-    "@vicons/ionicons5": "^0.12.0",
+    "@vicons/antd": "^0.12.0",
+    "@vicons/fa": "^0.12.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^10.0.0",
@@ -31,6 +33,7 @@
     "sass": "^1.52.3",
     "typescript": "~4.7.2",
     "vite": "^2.9.9",
+    "vitest": "^0.17.0",
     "vue-tsc": "^0.35.2"
   }
 }

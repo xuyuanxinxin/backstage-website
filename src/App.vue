@@ -7,9 +7,17 @@ import { RouterView } from 'vue-router'
 </template>
 
 <style>
+html,
 body {
-  box-sizing: border-box;
   height: 100%;
+}
+#app {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
+}
+* {
+  box-sizing: border-box;
 }
 </style>
