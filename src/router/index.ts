@@ -18,6 +18,12 @@ const router = createRouter({
         title: '控制面板',
       },
       component: () => import('@/views/Dashboard.vue'),
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/DataView.vue'),
+        },
+      ],
     },
   ],
 })

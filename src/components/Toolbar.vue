@@ -4,28 +4,28 @@
       <n-input size="small" placeholder="输入要搜索的内容" />
     </div>
     <div class="end-group">
-      <div class="tool-item">
-        <n-tooltip trigger="hover">
-          <template #trigger>
+      <n-tooltip trigger="hover">
+        <template #trigger>
+          <div class="tool-item">
             <div class="" @click="fullscreen">
               <n-icon size="20">
                 <expand-arrows-alt v-if="isFullScreen" />
                 <expand v-else />
               </n-icon>
             </div>
-          </template>
-          {{ fullScreenTooltip }}
-        </n-tooltip>
-      </div>
-      <div class="tool-item">
-        <n-dropdown :options="options">
+          </div>
+        </template>
+        {{ fullScreenTooltip }}
+      </n-tooltip>
+      <n-dropdown :options="options" @select="handleSelect">
+        <div class="tool-item">
           <n-avatar
             :size="30"
             round
             src="https://w.wallhaven.cc/full/nm/wallhaven-nmkv81.png"
           />
-        </n-dropdown>
-      </div>
+        </div>
+      </n-dropdown>
     </div>
   </nav>
 </template>
@@ -33,8 +33,10 @@
 <script setup lang="ts">
 import { NInput, NAvatar, NIcon, NTooltip, NDropdown } from 'naive-ui'
 import { Expand, ExpandArrowsAlt, User, SignOutAlt } from '@vicons/fa'
-import { computed, ref, h, type Component } from 'vue'
+import { computed, ref, h } from 'vue'
+import type { Component } from 'vue'
 import type { DropdownMixedOption } from 'naive-ui/es/dropdown/src/interface'
+import { useRouter } from 'vue-router'
 const fullscreen = () => {
   if (!document.fullscreenElement) {
     isFullScreen.value = true
@@ -44,6 +46,13 @@ const fullscreen = () => {
     if (document.exitFullscreen) {
       document.exitFullscreen()
     }
+  }
+}
+const router = useRouter()
+const handleSelect = (key: string, option: DropdownMixedOption) => {
+  console.log(key, option)
+  if (key === 'logout') {
+    router.replace('/login')
   }
 }
 const renderIcon = (icon: Component) => {
@@ -100,5 +109,6 @@ nav {
   height: 60px;
   align-items: center;
   display: flex;
+  box-shadow: 2px 0 4px rgba(33, 33, 33, 0.2);
 }
 </style>
