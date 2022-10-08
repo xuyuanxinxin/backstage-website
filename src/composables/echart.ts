@@ -1,4 +1,4 @@
-import { nextTick } from 'vue'
+import { nextTick, onUnmounted, watch, type UnwrapNestedRefs } from 'vue'
 import type { Ref } from 'vue'
 
 import * as echarts from 'echarts/core'
@@ -47,18 +47,26 @@ echarts.use([
   UniversalTransition,
 ])
 
-export function useEcharts(refData: Ref, option: Ref<ECOption>) {
+export function useEcharts(refData: Ref, option: UnwrapNestedRefs<ECOption>) {
   let chartInstance: EChartsType | null = null
 
   nextTick(() => {
     const element = refData.value as HTMLElement
     chartInstance = echarts.init(element)
-    chartInstance.setOption(option.value)
+    chartInstance.setOption(option)
   })
 
   function update() {
-    chartInstance!.setOption(option.value)
+    nextTick(() => {
+      chartInstance!.setOption(option)
+    })
   }
+
+  const unWatchOption = watch(option, update)
+
+  onUnmounted(() => {
+    unWatchOption()
+  })
 
   return {
     update,

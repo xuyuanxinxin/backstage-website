@@ -1,12 +1,10 @@
 <template>
   <n-card class="info-card">
-    <div
-      :style="{
-        display: 'flex',
-        justifyContent: 'space-between',
-        height: '35px',
-      }"
-    >
+    <div :style="{
+      display: 'flex',
+      justifyContent: 'space-between',
+      height: '35px',
+    }">
       <label for="" class="info-label">新增客户</label>
       <n-icon size="35" color="#4bb87a" v-if="showIcon">
         <user-friends />
@@ -17,11 +15,7 @@
         {{ numPrefix }}
       </span>
       <span class="info-num">
-        <n-number-animation
-          ref="numberAnimationInstRef"
-          :from="0"
-          :to="dataNum"
-        />
+        <n-number-animation ref="numberAnimationInstRef" :from="0" :to="dataNum" />
       </span>
     </div>
     <div :style="{ display: 'flex' }">
@@ -66,21 +60,26 @@ onMounted(() => {
   user-select: none;
   cursor: pointer;
 }
+
 .info-card {
+  background-color: var(--main-color);
   height: 150px;
 }
+
 .info-num {
   font-size: 35px;
   font-weight: 800;
   user-select: none;
   cursor: pointer;
 }
+
 .info-footer-label {
   font-size: 15px;
   user-select: none;
   cursor: pointer;
   text-overflow: ellipsis;
 }
+
 .decline-icon {
   transform: rotate(180deg);
 }

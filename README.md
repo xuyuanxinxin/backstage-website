@@ -1,46 +1,29 @@
-# backstage-website
+# 项目介绍
 
-This template should help get you started developing with Vue 3 in Vite.
+这是一个由Vue3+Pinia+Vite+Vue-Router+Echarts+Naive-ui搭建的后台管理网站前端
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+### TODO
+- [ ] 主页面选择，顶部带有进度条，最后结果确认页面
+- [ ] Driver.js 操作引导
+- [ ] Tab动态添加功能完善
+- [ ] WebSocket连接
+- [ ] 数据打印
+- [ ] 数据导出Excel/Pdf
+- [ ] 数据的导入 Excel
+- [ ] 标签页右键菜单: 关闭当前/关闭所有/关闭其他/关闭左右侧/刷新
+- [ ] 文件下载功能/文件上传 (多文件上传，显示进度)
+- [ ] 图片预览功能：可旋转，可放大，可切换
+- [ ] 点击复制功能
+- [ ] 水印功能：使用z-index + background: image repeat
+- [ ] 错误日志收集： 实现有待商榷
+- [ ] 基础表单（单页面和弹窗形式）
+- [ ] 分布表单
+- [ ] 动态表单（点击添加按钮，动态添加输入框）
+- [ ] 详情信息展示页面（可用于PDF打印） / 小票
+- [ ] 站点消息
+- [ ] 用户信息设置页面
+- [ ] 403 404 页面
+- [ ] 密码强度显示进度条
+- [ ] 账户管理（角色，状态筛选）
+- [ ] 细粒度按钮权限控制（添加Vue指令 设置role信息，根据后台提供的权限列表json 判断）
+- [ ] Mock数据模拟

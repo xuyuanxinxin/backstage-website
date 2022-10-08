@@ -2,13 +2,7 @@
   <div class="login-card">
     <div class="left">
       <figure>
-        <img
-          src="@/assets/undraw_review_re_kgg1.svg"
-          alt=""
-          srcset=""
-          draggable="false"
-          ondragstart="return false"
-        />
+        <img src="@/assets/undraw_review_re_kgg1.svg" alt="" srcset="" draggable="false" ondragstart="return false" />
         <figcaption :style="{ color: 'white' }">this is Description</figcaption>
       </figure>
     </div>
@@ -16,101 +10,50 @@
     <div class="right">
       <n-tabs animated class="right-content" size="large">
         <n-tab-pane name="passwordLogin" tab="密码登录">
-          <n-form
-            class="form"
-            ref="loginFormRef"
-            :model="loginForm"
-            :rules="rules"
-          >
+          <n-form class="form" ref="loginFormRef" :model="loginForm" :rules="rules">
             <n-form-item path="user.name" label="用户名">
               <n-input-group>
-                <n-select
-                  v-model:value="phonePrefix"
-                  :options="prefixOptions"
-                  :style="{ width: '90px' }"
-                />
-                <n-input
-                  v-model:value="loginForm.user.name"
-                  placeholder="输入用户名"
-                />
+                <n-select v-model:value="phonePrefix" :options="prefixOptions" :style="{ width: '90px' }" />
+                <n-input v-model:value="loginForm.user.name" placeholder="输入用户名" />
               </n-input-group>
             </n-form-item>
             <n-form-item path="user.password" label="密码">
-              <n-input
-                v-model:value="loginForm.user.password"
-                type="password"
-                show-password-on="click"
-                placeholder="输入密码"
-              />
+              <n-input v-model:value="loginForm.user.password" type="password" show-password-on="click"
+                placeholder="输入密码" />
             </n-form-item>
             <n-checkbox v-model:checked="isRemember">下次自动登录</n-checkbox>
             <n-form-item>
-              <n-button
-                @click="loginAction"
-                type="primary"
-                :style="{ width: 'calc(50% - 30px)', marginRight: '30px' }"
-                >登录</n-button
-              >
+              <n-button @click="loginAction" type="primary" :style="{ width: 'calc(50% - 30px)', marginRight: '30px' }">
+                登录</n-button>
               <n-button :style="{ width: '50%' }">注册</n-button>
             </n-form-item>
           </n-form>
         </n-tab-pane>
         <n-tab-pane name="codeLoginOrRegister" tab="验证码登录/注册">
-          <n-form
-            class="form"
-            ref="loginFormRef"
-            :model="registerForm"
-            :rules="registerRules"
-          >
+          <n-form class="form" ref="loginFormRef" :model="registerForm" :rules="registerRules">
             <n-form-item path="phone" label="电话号码">
               <n-input-group>
-                <n-select
-                  v-model:value="phonePrefix"
-                  :options="prefixOptions"
-                  :style="{ width: '90px' }"
-                />
-                <n-input
-                  v-model:value="registerForm.phone"
-                  placeholder="输入电话号码"
-                />
+                <n-select v-model:value="phonePrefix" :options="prefixOptions" :style="{ width: '90px' }" />
+                <n-input v-model:value="registerForm.phone" placeholder="输入电话号码" />
               </n-input-group>
             </n-form-item>
             <n-form-item path="code" label="验证码">
               <n-input-group>
-                <n-input
-                  v-model:value="registerForm.code"
-                  placeholder="输入验证码"
-                />
+                <n-input v-model:value="registerForm.code" placeholder="输入验证码" />
                 <n-button @click="getCode">{{ btnText }}</n-button>
               </n-input-group>
             </n-form-item>
             <n-form-item path="password1" label="密码">
-              <n-input
-                v-model:value="registerForm.password1"
-                show-password-on="click"
-                type="password"
-                placeholder="输入密码"
-              />
+              <n-input v-model:value="registerForm.password1" show-password-on="click" type="password"
+                placeholder="输入密码" />
             </n-form-item>
-            <n-form-item
-              path="password2"
-              label="重复密码"
-              :validation-status="password2Status"
-              :feedback="password2FeedBack"
-            >
-              <n-input
-                v-model:value="registerForm.password2"
-                show-password-on="click"
-                type="password"
-                placeholder="输入密码"
-              />
+            <n-form-item path="password2" label="重复密码" :validation-status="password2Status"
+              :feedback="password2FeedBack">
+              <n-input v-model:value="registerForm.password2" show-password-on="click" type="password"
+                placeholder="输入密码" />
             </n-form-item>
             <n-form-item>
-              <n-button
-                type="primary"
-                :style="{ width: 'calc(50% - 30px)', marginRight: '30px' }"
-                >登录</n-button
-              >
+              <n-button type="primary" :style="{ width: 'calc(50% - 30px)', marginRight: '30px' }">登录</n-button>
               <n-button :style="{ width: '50%' }">注册</n-button>
             </n-form-item>
           </n-form>
@@ -132,9 +75,8 @@ import {
   NTabs,
   NTabPane,
   NInputGroup,
-  type FormInst,
-  type FormRules,
 } from 'naive-ui'
+import type { FormInst, FormRules } from 'naive-ui'
 import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
 import router from '@/router'
 const timer = ref<number | null>(null)
@@ -227,9 +169,11 @@ const loginAction = () => {
 * {
   box-sizing: border-box;
 }
+
 .login-card {
   display: flex;
   height: 100vh;
+
   .left {
     display: flex;
     width: 50vw;
@@ -247,13 +191,16 @@ const loginAction = () => {
     justify-content: center;
     align-items: center;
   }
+
   .form {
     width: 80%;
   }
+
   img {
     margin: 30px 0;
     user-select: none;
   }
+
   .right-content {
     width: 80%;
   }
