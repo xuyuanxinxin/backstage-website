@@ -33,12 +33,8 @@
 </template>
 
 <script setup lang="ts">
-import {
-  NCard,
-  NIcon,
-  NNumberAnimation,
-  type NumberAnimationInst,
-} from 'naive-ui'
+import { NCard, NIcon, NNumberAnimation } from 'naive-ui'
+import type { NumberAnimationInst } from 'naive-ui'
 import { UserFriends } from '@vicons/fa'
 import { RiseOutlined } from '@vicons/antd'
 import { onMounted, ref } from 'vue'
@@ -46,7 +42,7 @@ const props = defineProps({
   isRise: { type: Boolean },
   dataNum: { type: Number },
   showIcon: { type: Boolean, default: true },
-  numPrefix: { type: String, default: '' },
+  numPrefix: { type: String, default: '' }
 })
 const numberAnimationInstRef = ref<NumberAnimationInst | null>(null)
 onMounted(() => {

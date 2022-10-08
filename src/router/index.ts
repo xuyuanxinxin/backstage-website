@@ -7,32 +7,32 @@ export const routes: RouteRecordRaw[] = [
     name: 'login',
     meta: {
       title: '登录页面',
-      inMenu: false,
+      inMenu: false
     },
-    component: () => import('@/views/Login.vue'),
+    component: () => import('@/views/Login.vue')
   },
   {
     path: '/dashboard',
     name: '控制面板',
     meta: {
       title: '控制面板',
-      icon: DatabaseOutlined,
+      icon: DatabaseOutlined
     },
     component: () => import('@/components/Dashboard.vue'),
     children: [
       {
         path: '',
         name: '主页',
-        component: () => import('@/views/MainPage.vue'),
-      },
-    ],
+        component: () => import('@/views/MainPage.vue')
+      }
+    ]
   },
   {
     path: '/dataView',
     name: '数据展示',
     component: () => import('@/components/Dashboard.vue'),
     meta: {
-      icon: CloudServerOutlined,
+      icon: CloudServerOutlined
     },
     children: [
       {
@@ -43,11 +43,11 @@ export const routes: RouteRecordRaw[] = [
           {
             path: 'test',
             name: 'test1',
-            component: () => import('@/views/NotFound.vue'),
-          },
-        ],
-      },
-    ],
+            component: () => import('@/views/NotFound.vue')
+          }
+        ]
+      }
+    ]
   },
   {
     path: '/settings',
@@ -57,19 +57,19 @@ export const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: '分布表单',
-        component: () => import('@/views/StepperForm.vue'),
-      },
-    ],
+        component: () => import('@/views/StepperForm.vue')
+      }
+    ]
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     meta: {
       title: '未找到页面',
-      inMenu: false,
+      inMenu: false
     },
-    component: () => import('@/views/NotFound.vue'),
-  },
+    component: () => import('@/views/NotFound.vue')
+  }
 ]
 
 // for (let i = 0; i < 20; ++i) {
@@ -85,7 +85,7 @@ export const routes: RouteRecordRaw[] = [
 // }
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
+  routes
 })
 
 router.beforeEach((to, from) => {

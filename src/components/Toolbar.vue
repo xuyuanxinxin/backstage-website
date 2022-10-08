@@ -10,7 +10,7 @@
             </n-icon>
           </div>
         </template>
-        {{  collapsedTooltip  }}
+        {{ collapsedTooltip }}
       </n-tooltip>
     </div>
     <div class="end-group" @click="fullscreen">
@@ -23,10 +23,10 @@
             </n-icon>
           </div>
         </template>
-        {{  fullScreenTooltip  }}
+        {{ fullScreenTooltip }}
       </n-tooltip>
 
-      <n-dropdown :options="options" :on-select="dropDownSelect">
+      <n-dropdown :options="options" @on-select="dropDownSelect">
         <div class="tool-item">
           <n-avatar :size="30" round src="/src/assets/avatar-gd78f147b3_1280.png" />
         </div>
@@ -37,7 +37,7 @@
     <n-tabs type="card" :default-value="panels[0].name" :value="currentValue" @update:value="updateTab" :closable="true"
       @close="closeTab">
       <n-tab v-for="panel in panels" :key="panel.key" :name="panel.name" v-context-menu="mOptions">
-        {{  panel.name  }}
+        {{ panel.name }}
       </n-tab>
     </n-tabs>
   </div>
@@ -129,6 +129,12 @@ const fullscreen = () => {
     }
   }
 }
+const handleSelect = (key: string, option: DropdownMixedOption) => {
+  console.log(key, option)
+  if (key === 'logout') {
+    router.replace('/login')
+  }
+}
 const renderIcon = (icon: Component) => {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
@@ -205,6 +211,7 @@ nav {
   z-index: 998;
   align-items: center;
   display: flex;
+  box-shadow: 2px 0 4px rgba(33, 33, 33, 0.2);
 }
 
 nav,

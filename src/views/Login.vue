@@ -76,11 +76,17 @@ import {
   NTabPane,
   NInputGroup,
 } from 'naive-ui'
+import type { Ref } from 'vue'
 import type { FormInst, FormRules } from 'naive-ui'
 import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
 import router from '@/router'
 const timer = ref<number | null>(null)
-const loginForm = ref({
+type userOption = {
+  user: {
+    [key: string]: string
+  }
+}
+const loginForm: Ref<userOption> = ref({
   user: {
     name: '',
     password: '',
@@ -163,6 +169,19 @@ const getCode = () => {
 const loginAction = () => {
   router.push('/dashboard')
 }
+const isDisabled = computed(() => {
+  const obj = loginForm.value.user
+  const formData = []
+  for (const property of Object.getOwnPropertyNames(obj)) {
+    console.log(property)
+    console.log(obj[property])
+    formData.push(obj[property])
+  }
+  if (formData.some((e) => e === '')) {
+    return true
+  }
+  return false
+})
 </script>
 
 <style lang="scss" scoped>
